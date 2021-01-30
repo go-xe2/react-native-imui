@@ -1,0 +1,50 @@
+{
+  "name": "aurora-imui-react-native",
+  "version": "1.0.0",
+  "description": "[中文文档](./README_zh.md)",
+  "main": "chatinput.android.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/go-xe2/aurora-imui-react-native.git"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "imui"
+  ],
+  "author": "279197148@qq.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/go-xe2/react-native-imui/issues"
+  },
+  "homepage": "https://github.com/go-xe2/react-native-imui#readme",
+  "peerDependencies": {
+    "react-native": "*"
+  },
+  "devDependencies": {
+    "react": "16.13.1",
+    "react-native": "0.63.4",
+    "@babel/core": "^7.12.10",
+    "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "babel-eslint": "7.2.3",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.17.0",
+    "eslint-config-standard": "6.2.1",
+    "eslint-config-standard-react": "4.3.0",
+    "eslint-plugin-babel": "3.3.0",
+    "eslint-plugin-promise": "3.6.0",
+    "eslint-plugin-react": "6.10.3",
+    "eslint-plugin-standard": "2.3.1",
+    "jest": "^26.6.3",
+    "jszip": "2.6.1",
+    "metro-react-native-babel-preset": "^0.64.0",
+    "react-test-renderer": "16.13.1"
+  }
+}

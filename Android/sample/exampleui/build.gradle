@@ -1,0 +1,69 @@
+apply plugin: 'com.android.application'
+apply from: "$project.rootDir/tools/script-git-version.gradle"
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+    flavorDimensions "versionCode"
+
+    defaultConfig {
+        applicationId "imui.jiguang.cn.imuisample"
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    productFlavors {
+        dev {
+            versionCode gitVersionCodeTime
+            versionName gitVersionName
+            applicationId "imui.jiguang.cn.imuisample.dev"
+            dimension "versionCode"
+        }
+
+        prod {
+            versionCode gitVersionCode
+            versionName gitVersionName
+            applicationId "imui.jiguang.cn.imuisample"
+            dimension "versionCode"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                    "$project.rootDir/tools/proguard-rules.pro"
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                    "$project.rootDir/tools/proguard-rules-debug.pro"
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+    sourceSets {
+        main {
+            assets.srcDirs = ['assets']
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation 'com.android.support:appcompat-v7:27.1.0'
+    implementation 'com.android.support:design:27.1.0'
+    implementation 'com.github.bumptech.glide:glide:4.6.1'
+    compile 'pub.devrel:easypermissions:0.4.0'
+    compile project(':messagelist')
+    compile project(':chatinput')
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
+    testCompile 'junit:junit:4.12'
+}

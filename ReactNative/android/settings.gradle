@@ -1,0 +1,4 @@
+include ':chatinput'
+project(':chatinput').projectDir = new File('../../Android/chatinput')
+include ':messagelist'
+project(':messagelist').projectDir = new File('../../Android/messagelist')
