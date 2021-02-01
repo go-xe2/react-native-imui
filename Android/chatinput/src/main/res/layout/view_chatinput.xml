@@ -11,7 +11,7 @@
         android:layout_marginTop="8dp"
         android:orientation="horizontal">
 
-        <android.support.v4.widget.Space
+        <androidx.legacy.widget.Space
             android:id="@+id/aurora_input_margin_left"
             android:layout_width="12dp"
             android:layout_height="match_parent" />
@@ -38,7 +38,7 @@
             android:textCursorDrawable="@drawable/aurora_edittext_cursor_bg"
             android:textSize="18sp" />
 
-        <android.support.v4.widget.Space
+        <androidx.legacy.widget.Space
             android:id="@+id/aurora_input_margin_right"
             android:layout_width="12dp"
             android:layout_height="match_parent" />

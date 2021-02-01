@@ -6,9 +6,11 @@ import {
 
 import ChatInput from './ReactNative/chatinput';
 import MessageList from './ReactNative/messagelist';
+// import EmojiView from './ReactNative/emojiView';
 
 const AuroraIMUIModule = NativeModules.AuroraIMUIModule;
 
+console.log('AuroraIMUIModule:', AuroraIMUIModule);
 const listeners = {};
 const IMUIMessageListDidLoad = "IMUIMessageListDidLoad";
 const GET_INPUT_TEXT_EVENT = "getInputText";
@@ -16,7 +18,7 @@ const GET_INPUT_TEXT_EVENT = "getInputText";
 class AuroraIMUIController {
 	/**
 	 * append messages into messageList's bottom
-	 * 
+	 *
 	 * @param {Array} messageList  [message]
 	 */
 	static appendMessages(messageList) {
@@ -48,7 +50,7 @@ class AuroraIMUIController {
 	}
 
 	/**
-	 * stop play voice 
+	 * stop play voice
 	 */
 	static stopPlayVoice() {
 		AuroraIMUIModule.stopPlayVoice()
@@ -56,7 +58,7 @@ class AuroraIMUIController {
 
 	/**
 	 * scroll messageList to bottom
-	 * @param {Boolean} animate 
+	 * @param {Boolean} animate
 	 */
 	static scrollToBottom(animate) {
 		AuroraIMUIModule.scrollToBottom(animate)
@@ -64,7 +66,7 @@ class AuroraIMUIController {
 
 	/**
 	 * hiden featureView
-	 * @param {Boolean} animate 
+	 * @param {Boolean} animate
 	 */
 	static hidenFeatureView(animate) {
 		AuroraIMUIModule.hidenFeatureView(animate)
@@ -76,10 +78,10 @@ class AuroraIMUIController {
 	static layoutInputView() {
 		AuroraIMUIModule.layoutInputView()
 	}
-	
+
 	/**
 	 * add listener: messageList did Loaded will call cb
-	 * @param {Function} cb 
+	 * @param {Function} cb
 	 */
 	static addMessageListDidLoadListener(cb) {
 		listeners[cb] = DeviceEventEmitter.addListener(IMUIMessageListDidLoad,
@@ -91,7 +93,7 @@ class AuroraIMUIController {
 	/**
 	 * Get Input text, Android Only
 	 * @param {Function} cb
-	 * @param {String} text 
+	 * @param {String} text
 	 */
 	static addGetInputTextListener(cb) {
 		listeners[cb] = DeviceEventEmitter.addListener(GET_INPUT_TEXT_EVENT, (text) => {
@@ -101,7 +103,7 @@ class AuroraIMUIController {
 
 	/**
 	 * remove listener:
-	 * @param {Function} cb 
+	 * @param {Function} cb
 	 */
 	static removeMessageListDidLoadListener(cb) {
 		if (!listeners[cb]) {
@@ -139,7 +141,7 @@ class AuroraIMUIController {
 
 	/**
      * 压缩图片，将图片压缩成指定质量的大小
-     * param = { "path": String, "compressionQuality": number } // compressionQuality = {0 - 1} 
+     * param = { "path": String, "compressionQuality": number } // compressionQuality = {0 - 1}
      * result = { "code": number(0 表示压缩成功，否则不成功), "thumbPath": String }
      */
 	static compressImage(param, cb) {
@@ -147,12 +149,13 @@ class AuroraIMUIController {
 	        cb(result);
 	    });
 	}
-	
-	
+
+
 }
 
 module.exports = {
 	ChatInput: ChatInput,
 	MessageList: MessageList,
+	// EmojiView: EmojiView,
 	AuroraIMUIController: AuroraIMUIController,
 };

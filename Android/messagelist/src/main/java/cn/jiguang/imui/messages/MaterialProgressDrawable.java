@@ -23,7 +23,6 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
-import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.animation.*;
@@ -35,7 +34,7 @@ import java.util.ArrayList;
 
 /**
  * Fancy progress indicator for Material theme.
- * It's taken from {@link android.support.v4.widget}.
+ * It's taken from {@link androidx.core.widget}.
  * I've done some slight changes.
  *
  * @hide

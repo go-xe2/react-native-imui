@@ -19,6 +19,8 @@
         "url": "https://github.com/jpush/aurora-imui/issues"
     },
     "files": [
+        "Android",
+        "iOS",
         "iOS/IMUICommon",
         "iOS/IMUIInputView",
         "iOS/IMUIMessageCollectionView",
