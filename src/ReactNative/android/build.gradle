@@ -3,18 +3,40 @@ apply plugin: 'com.android.library'
 def safeExtGet(prop, fallback) {
     rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
 }
+
+buildscript {
+    repositories {
+        maven {
+            url("https://maven.aliyun.com/repository/google")
+        }
+        maven {
+            url("https://maven.aliyun.com/repository/public")
+        }
+        google()
+//        google()
+//        jcenter()
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle:3.5.3")
+//          classpath('com.google.gms:google-services:4.3.3')
+        // classpath("com.android.tools.build:gradle:2.2.3")
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
 android {
-    compileSdkVersion safeExtGet('compileSdkVersion', 27)
-    buildToolsVersion safeExtGet('buildToolsVersion', '27.0.3')
+    compileSdkVersion safeExtGet('compileSdkVersion', 28)
+    buildToolsVersion safeExtGet('buildToolsVersion', '29.0.2')
     flavorDimensions "prod"
 
     defaultConfig {
-        minSdkVersion safeExtGet('minSdkVersion', 16)
-        targetSdkVersion safeExtGet('targetSdkVersion', 27)
+        minSdkVersion safeExtGet('minSdkVersion', 23)
+        targetSdkVersion safeExtGet('targetSdkVersion', 28)
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
     }
     buildTypes {
@@ -23,22 +45,52 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+
+allprojects {
+    repositories {
+        mavenLocal()
+        maven {
+            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+            url("$rootDir/../../node_modules/react-native/android")
+        }
+        maven {
+            url("https://maven.aliyun.com/repository/google")
+        }
+        maven {
+            url("https://maven.aliyun.com/repository/public")
+        }
+//        google()
+//        jcenter()
+        maven { url 'https://www.jitpack.io' }
+        google()
+    }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    implementation 'cn.jiguang.imui:messagelist:+'
-    implementation 'cn.jiguang.imui:chatinput:+'
+    implementation(name: 'chatinput', ext: 'aar')
+    implementation(name: 'messagelist', ext: 'aar')
+//    implementation 'cn.jiguang.imui:messagelist:+'
+//    implementation 'cn.jiguang.imui:chatinput:+'
     implementation 'pub.devrel:easypermissions:1.0.1'
     implementation 'org.greenrobot:eventbus:3.0.0'
-    implementation 'com.android.support:appcompat-v7:27.1.0'
-    implementation 'com.android.support:design:27.1.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.facebook.react:react-native:+'
     implementation 'com.google.code.gson:gson:2.8.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation "com.facebook.react:react-native:+"  // From node_modules
     testImplementation 'junit:junit:4.12'
 
 }

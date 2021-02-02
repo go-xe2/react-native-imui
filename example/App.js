@@ -27,9 +27,9 @@ import {
 import IMUI from 'react-native-imui';
 
 //
-const ChatInput = IMUI.ChatInput;
-const EmojiView = IMUI.EmojiView;
-const IMInput = IMUI.IMInput;
+// const ChatInput = IMUI.ChatInput;
+// const EmojiView = IMUI.EmojiView;
+// const IMInput = IMUI.IMInput;
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -65,30 +65,31 @@ export default class App extends Component {
     return (
           <KeyboardAvoidingView behavior={'padding'} style={{flex: 1}} >
           <View>
-            <ChatInput style={{ width: 360, height: inputLayoutHeight, backgroundColor: '#f3f3f3' }}
-                 inputPadding={{ left: 30, top: 10, right: 10, bottom: 10 }}
-                 galleryScale={0.6}
-                 compressionQuality={0.6}
-                 cameraQuality={0.7}
-                  onSizeChange={this.onInputViewSizeChange}
-                 customLayoutItems={{
-                   left: ['voice'],
-                   right: ['send'],
-                   bottom: ['gallery', 'emoji', 'camera', 'file'],
-                 }}
-                 showSelectAlbumBtn
-                 showRecordVideoBtn
-            />
-            <IMInput ref={this.imInputRef} style={{ width: 300, height: 60, backgroundColor: '#f1f1f1', borderWidth: 1, borderColor: 'red', margin: 20, borderRadius: 10, padding: 10 }}
-                     onChange={this.onInputChange}
-                     text={text}
-            />
-            <EmojiView
-                style={{ width: 360, height: 300, backgroundColor: 'red' }}
-                onSelect={this.onSelect}
-                onPageChanged={this.onPageChanged}
-                onDelete={this.onDelete}
-            />
+            <Text>this is demo</Text>
+            {/*<ChatInput style={{ width: 360, height: inputLayoutHeight, backgroundColor: '#f3f3f3' }}*/}
+            {/*     inputPadding={{ left: 30, top: 10, right: 10, bottom: 10 }}*/}
+            {/*     galleryScale={0.6}*/}
+            {/*     compressionQuality={0.6}*/}
+            {/*     cameraQuality={0.7}*/}
+            {/*      onSizeChange={this.onInputViewSizeChange}*/}
+            {/*     customLayoutItems={{*/}
+            {/*       left: ['voice'],*/}
+            {/*       right: ['send'],*/}
+            {/*       bottom: ['gallery', 'emoji', 'camera', 'file'],*/}
+            {/*     }}*/}
+            {/*     showSelectAlbumBtn*/}
+            {/*     showRecordVideoBtn*/}
+            {/*/>*/}
+            {/*<IMInput ref={this.imInputRef} style={{ width: 300, height: 60, backgroundColor: '#f1f1f1', borderWidth: 1, borderColor: 'red', margin: 20, borderRadius: 10, padding: 10 }}*/}
+            {/*         onChange={this.onInputChange}*/}
+            {/*         text={text}*/}
+            {/*/>*/}
+            {/*<EmojiView*/}
+            {/*    style={{ width: 360, height: 300, backgroundColor: 'red' }}*/}
+            {/*    onSelect={this.onSelect}*/}
+            {/*    onPageChanged={this.onPageChanged}*/}
+            {/*    onDelete={this.onDelete}*/}
+            {/*/>*/}
           </View>
           </KeyboardAvoidingView>
     );

@@ -667,6 +667,7 @@ public class ReactMsgListManager extends ViewGroupManager<PullToRefreshLayout> i
         super.onCatalystInstanceDestroy();
     }
 
+    @SuppressLint ("InvalidWakeLockTag")
     private void registerProximitySensorListener() {
         try {
             Activity activity = mContext.getCurrentActivity();
@@ -717,6 +718,7 @@ public class ReactMsgListManager extends ViewGroupManager<PullToRefreshLayout> i
         }
     }
 
+    @SuppressLint ("InvalidWakeLockTag")
     private void setScreenOff() {
         if (mWakeLock == null) {
             mWakeLock = mPowerManager.newWakeLock(PowerManager.PROXIMITY_SCREEN_OFF_WAKE_LOCK, REACT_MESSAGE_LIST);
