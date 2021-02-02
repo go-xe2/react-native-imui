@@ -192,7 +192,13 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 //     implementation project(':chatinput')
 //     implementation project(':messagelist')
-    implementation project(':react-native-imui')
+//     implementation (project(':react-native-imui')
+    implementation (project(':react-native-imui')) {
+        exclude group: 'com.android.support'
+    }
+//    implementation (project(':aurora-imui-react-native')) {
+//         exclude group: 'com.android.support'
+//     }
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
       exclude group:'com.facebook.fbjni'
     }
